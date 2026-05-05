@@ -31,8 +31,8 @@ targets:
       properties:
         CFBundleName: WireHack
         CFBundleDisplayName: WireHack
-        CFBundleShortVersionString: "1.3.0"
-        CFBundleVersion: "130"
+        CFBundleShortVersionString: "1.4.0"
+        CFBundleVersion: "140"
         LSApplicationCategoryType: public.app-category.utilities
         NSAppTransportSecurity:
           NSAllowsArbitraryLoads: true
