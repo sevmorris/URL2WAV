@@ -1,5 +1,19 @@
 import Foundation
 
+enum DownloadFormat: String, CaseIterable, Identifiable {
+    case nativeAudio = "Native Audio Only"
+    case nativeVideo = "Native Video"
+    
+    var id: String { self.rawValue }
+    
+    var ytDlpFormatArg: String {
+        switch self {
+        case .nativeAudio: return "ba"
+        case .nativeVideo: return "best"
+        }
+    }
+}
+
 enum YTDLPError: LocalizedError {
     case notFound
     case executionFailed(String)
@@ -19,7 +33,7 @@ class YTDLPService {
     
     private let ytDlpPath = "/opt/homebrew/bin/yt-dlp"
     
-    func downloadWAV(url: String, downloadFolder: String? = nil, onProgress: @escaping (String) -> Void) async throws {
+    func downloadMedia(url: String, format: DownloadFormat, downloadFolder: String? = nil, onProgress: @escaping (String) -> Void) async throws {
         guard FileManager.default.fileExists(atPath: ytDlpPath) else {
             throw YTDLPError.notFound
         }
@@ -28,11 +42,13 @@ class YTDLPService {
         
         let process = Process()
         process.executableURL = URL(fileURLWithPath: ytDlpPath)
+        
+        // Use the native format arguments and output template, completely bypassing ffmpeg transcoding.
+        // The output template ensures yt-dlp uses the server-provided extension automatically.
         process.arguments = [
-            "-x",
-            "--audio-format", "wav",
-            "--audio-quality", "0",
+            "-f", format.ytDlpFormatArg,
             "-P", destinationFolder,
+            "-o", "%(title)s.%(ext)s",
             "--no-playlist",
             url
         ]

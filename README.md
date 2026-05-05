@@ -1,20 +1,20 @@
-# URL2WAV
+# WireHack
 ### Minimal yt-dlp wrapper for macOS
 
 <p align="center">
-  <a href="https://github.com/sevmorris/URL2WAV/releases/latest/download/URL2WAV-v1.2.0.dmg"><strong>Download Latest (DMG)</strong></a>
+  <a href="https://github.com/sevmorris/WireHack/releases/latest/download/WireHack-v1.2.0.dmg"><strong>Download Latest (DMG)</strong></a>
   ·
-  <a href="https://github.com/sevmorris/URL2WAV/issues">Report Bug</a>
+  <a href="https://github.com/sevmorris/WireHack/issues">Report Bug</a>
 </p>
 
-**URL2WAV** is a simple, polished macOS utility designed to grab audio from URLs (YouTube, Soundcloud, etc.) and convert it directly to high-quality WAV format. It provides a clean GUI for `yt-dlp`, removing the need for terminal commands when you just need a quick clip for a mix.
+**WireHack** is a simple, polished macOS utility designed to grab audio or video from URLs (YouTube, Soundcloud, etc.) and download the native source files directly. It provides a clean GUI for `yt-dlp`, removing the need for terminal commands when you just need a quick clip for a mix.
 
 ---
 
 ## Features
 *   **Simple Interface:** Paste a URL and click one button.
+*   **Native Formats:** Bypass slow and error-prone `ffmpeg` transcodes by fetching the native `ba` (best audio) or `best` (best video) files from the server.
 *   **Destination Selection:** Save directly to Downloads or choose a custom folder.
-*   **High Quality:** Extracts audio using `--audio-format wav --audio-quality 0`.
 *   **No Playlist Mode:** Focuses on single clips to prevent accidental bulk downloads.
 *   **Native Design:** Built with SwiftUI for a modern macOS feel.
 
@@ -27,8 +27,8 @@
 ---
 
 ## Installation
-1.  Download the latest [DMG](https://github.com/sevmorris/URL2WAV/releases/latest).
-2.  Drag **URL2WAV** to your Applications folder.
+1.  Download the latest [DMG](https://github.com/sevmorris/WireHack/releases/latest).
+2.  Drag **WireHack** to your Applications folder.
 3.  Ensure you have `yt-dlp` installed via Homebrew: `brew install yt-dlp`.
 
 ---
@@ -38,7 +38,7 @@ The project uses [XcodeGen](https://github.com/yonaskolb/XcodeGen) to manage the
 
 1.  Clone the repo.
 2.  Run `xcodegen generate`.
-3.  Open `URL2WAV.xcodeproj`.
+3.  Open `WireHack.xcodeproj`.
 
 ### Releasing
 Use the bundled release script to build, sign, and notarize:

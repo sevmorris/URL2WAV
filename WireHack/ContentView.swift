@@ -6,6 +6,7 @@ struct ContentView: View {
     @State private var status: String = "Ready"
     @State private var errorMessage: String? = nil
     @State private var outputDirectory: URL? = FileManager.default.urls(for: .downloadsDirectory, in: .userDomainMask).first
+    @State private var selectedFormat: DownloadFormat = .nativeAudio
     
     var body: some View {
         VStack(spacing: 20) {
@@ -28,6 +29,21 @@ struct ContentView: View {
                                 .stroke(Color.secondary.opacity(0.2), lineWidth: 1)
                         )
                         .disabled(isDownloading)
+                }
+
+                // Format Selector
+                VStack(alignment: .leading, spacing: 8) {
+                    Text("Format")
+                        .font(.caption)
+                        .foregroundStyle(.secondary)
+                    
+                    Picker("", selection: $selectedFormat) {
+                        ForEach(DownloadFormat.allCases) { format in
+                            Text(format.rawValue).tag(format)
+                        }
+                    }
+                    .pickerStyle(.segmented)
+                    .disabled(isDownloading)
                 }
 
                 // Output Selector
@@ -61,7 +77,7 @@ struct ContentView: View {
                             .controlSize(.small)
                             .padding(.trailing, 4)
                     }
-                    Text(isDownloading ? "Downloading..." : "Grab WAV")
+                    Text(isDownloading ? "Downloading..." : "Download")
                         .fontWeight(.semibold)
                 }
                 .frame(maxWidth: .infinity)
@@ -100,7 +116,7 @@ struct ContentView: View {
             }
             
             VStack(alignment: .leading, spacing: 0) {
-                Text("URL2WAV")
+                Text("WireHack") // Renamed structurally for the UI
                     .font(.headline)
                 Text("yt-dlp wrapper")
                     .font(.caption)
@@ -132,7 +148,7 @@ struct ContentView: View {
         
         Task {
             do {
-                try await YTDLPService.shared.downloadWAV(url: url, downloadFolder: outputDirectory?.path) { output in
+                try await YTDLPService.shared.downloadMedia(url: url, format: selectedFormat, downloadFolder: outputDirectory?.path) { output in
                     // In a more complex version, we'd parse progress here
                 }
                 status = "Finished! Check your destination folder."

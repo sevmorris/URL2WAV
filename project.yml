@@ -1,4 +1,4 @@
-name: URL2WAV
+name: WireHack
 
 options:
   bundleIdPrefix: io.github.sevmorris
@@ -12,27 +12,27 @@ settings:
     MACOSX_DEPLOYMENT_TARGET: "14.0"
 
 targets:
-  URL2WAV:
+  WireHack:
     type: application
     platform: macOS
     deploymentTarget: "14.0"
     sources:
-      - path: URL2WAV
+      - path: WireHack
     settings:
       base:
-        PRODUCT_BUNDLE_IDENTIFIER: io.github.sevmorris.URL2WAV
-        INFOPLIST_KEY_CFBundleDisplayName: URL2WAV
+        PRODUCT_BUNDLE_IDENTIFIER: io.github.sevmorris.WireHack
+        INFOPLIST_KEY_CFBundleDisplayName: WireHack
         ASSETCATALOG_COMPILER_APPICON_NAME: AppIcon
         CODE_SIGN_STYLE: Automatic
         ENABLE_HARDENED_RUNTIME: YES
         CODE_SIGN_IDENTITY: "-"
     info:
-      path: URL2WAV/Info.plist
+      path: WireHack/Info.plist
       properties:
-        CFBundleName: URL2WAV
-        CFBundleDisplayName: URL2WAV
-        CFBundleShortVersionString: "1.2.0"
-        CFBundleVersion: "120"
+        CFBundleName: WireHack
+        CFBundleDisplayName: WireHack
+        CFBundleShortVersionString: "1.3.0"
+        CFBundleVersion: "130"
         LSApplicationCategoryType: public.app-category.utilities
         NSAppTransportSecurity:
           NSAllowsArbitraryLoads: true

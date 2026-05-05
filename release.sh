@@ -1,5 +1,5 @@
 #!/usr/bin/env zsh
-# release.sh — Build, verify, package, and publish a URL2WAV release.
+# release.sh — Build, verify, package, and publish a WireHack release.
 #
 # Usage: ./release.sh <version>
 #   e.g. ./release.sh 1.0.0
@@ -8,7 +8,7 @@
 
 set -euo pipefail
 
-REPO="sevmorris/URL2WAV"
+REPO="sevmorris/WireHack"
 
 # ── Args ──────────────────────────────────────────────────────────────────────
 if [[ $# -ne 1 ]]; then
@@ -22,13 +22,13 @@ TAG="v${VERSION}"
 SCRIPT_DIR="${0:A:h}"
 PROJECT_DIR="$SCRIPT_DIR"
 YAML="$PROJECT_DIR/project.yml"
-PROJECT="$PROJECT_DIR/URL2WAV.xcodeproj"
-SCHEME="URL2WAV"
-DERIVED_DATA="/tmp/url2wav_build_${VERSION}"
-APP_PATH="$DERIVED_DATA/Build/Products/Release/URL2WAV.app"
-STAGING="/tmp/url2wav_dmg_${VERSION}"
-DMG="/tmp/URL2WAV-${TAG}.dmg"
-MOUNT="/tmp/url2wav_verify_${VERSION}"
+PROJECT="$PROJECT_DIR/WireHack.xcodeproj"
+SCHEME="WireHack"
+DERIVED_DATA="/tmp/wirehack_build_${VERSION}"
+APP_PATH="$DERIVED_DATA/Build/Products/Release/WireHack.app"
+STAGING="/tmp/wirehack_dmg_${VERSION}"
+DMG="/tmp/WireHack-${TAG}.dmg"
+MOUNT="/tmp/wirehack_verify_${VERSION}"
 
 # ── Helpers ───────────────────────────────────────────────────────────────────
 step()  { echo "\n▶ $*"; }
@@ -95,7 +95,7 @@ ok "Build complete"
 # ── Sign ──────────────────────────────────────────────────────────────────────
 step "Codesigning app bundle"
 IDENTITY="Developer ID Application: Seven Morris (T9RLNAXPWU)"
-ENTITLEMENTS="$PROJECT_DIR/URL2WAV/URL2WAV.entitlements"
+ENTITLEMENTS="$PROJECT_DIR/WireHack/WireHack.entitlements"
 
 # Sign the app bundle with Hardened Runtime
 codesign --force --options runtime --entitlements "$ENTITLEMENTS" --sign "$IDENTITY" "$APP_PATH"
@@ -120,7 +120,7 @@ ok "App, Applications alias"
 step "Creating DMG"
 rm -f "$DMG"
 hdiutil create \
-    -volname "URL2WAV $TAG" \
+    -volname "WireHack $TAG" \
     -srcfolder "$STAGING" \
     -ov \
     -format UDZO \
@@ -139,7 +139,7 @@ step "Verifying DMG contents"
 rm -rf "$MOUNT"
 mkdir "$MOUNT"
 hdiutil attach "$DMG" -mountpoint "$MOUNT" -quiet -nobrowse
-DMG_VERSION=$(defaults read "$MOUNT/URL2WAV.app/Contents/Info.plist" CFBundleShortVersionString)
+DMG_VERSION=$(defaults read "$MOUNT/WireHack.app/Contents/Info.plist" CFBundleShortVersionString)
 hdiutil detach "$MOUNT" -quiet
 [[ "$DMG_VERSION" == "$VERSION" ]] || \
     fail "DMG version mismatch: expected $VERSION, got $DMG_VERSION"
@@ -160,7 +160,7 @@ ${CHANGES}"
 
 gh release create "$TAG" "$DMG" \
     --repo "$REPO" \
-    --title "URL2WAV $TAG" \
+    --title "WireHack $TAG" \
     --notes "$RELEASE_NOTES"
 ok "Release published"
 
@@ -172,5 +172,5 @@ rm -rf "$STAGING" "$MOUNT" "$DERIVED_DATA"
 ok "Temp files removed"
 
 RELEASE_URL="https://github.com/${REPO}/releases/tag/${TAG}"
-echo "\n✓ URL2WAV $TAG released successfully."
+echo "\n✓ WireHack $TAG released successfully."
 echo "  $RELEASE_URL"

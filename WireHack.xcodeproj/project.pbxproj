@@ -7,132 +7,152 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		0E2F0929BC191AF3CC2BAF29 /* YTDLPService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42C77460B7FC33DCB658F18A /* YTDLPService.swift */; };
-		0FFA0EF23E55CD29D116F20C /* URL2WAVApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AC1D591151CBBAB5EC683A9 /* URL2WAVApp.swift */; };
-		12074D6D3FC79C0620E38A19 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 46D29C4C155C08215F5854D0 /* Assets.xcassets */; };
-		A1312688ECE43999AC15B681 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B59647ABBBA7218A885DC5D9 /* ContentView.swift */; };
+		21C8A117082EA99C93EF0B95 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A168F9066BD19E9EF0D3C100 /* Assets.xcassets */; };
+		3AFAB57B3A5E8783A7F1FA00 /* UpdateChecker.swift in Sources */ = {isa = PBXBuildFile; fileRef = A25E6F1EC060DD90B4B9F02F /* UpdateChecker.swift */; };
+		4979D27221AC631DD9EA6E5E /* WireHackApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A4D0841C116B8C5F6E75A5D /* WireHackApp.swift */; };
+		72328692954E27E7B967374E /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C12A955BBE1205422A6514B /* ContentView.swift */; };
+		DD947EF55903C0B93EED6388 /* YTDLPService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1E44F29148EA392A80D1437 /* YTDLPService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		0906BBEC41453489162E7BEA /* URL2WAV.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = URL2WAV.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		1AC1D591151CBBAB5EC683A9 /* URL2WAVApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URL2WAVApp.swift; sourceTree = "<group>"; };
-		42C77460B7FC33DCB658F18A /* YTDLPService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YTDLPService.swift; sourceTree = "<group>"; };
-		4474E80F6A638FB5EDBBDAC3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
-		46D29C4C155C08215F5854D0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		59E6F0A03924CB42AE27F751 /* URL2WAV.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = URL2WAV.entitlements; sourceTree = "<group>"; };
-		B59647ABBBA7218A885DC5D9 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		27B4397D34B8B9E57349BA34 /* WireHack.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = WireHack.entitlements; sourceTree = "<group>"; };
+		5A4D0841C116B8C5F6E75A5D /* WireHackApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WireHackApp.swift; sourceTree = "<group>"; };
+		9C12A955BBE1205422A6514B /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		A168F9066BD19E9EF0D3C100 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		A25E6F1EC060DD90B4B9F02F /* UpdateChecker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateChecker.swift; sourceTree = "<group>"; };
+		B3E2D51BD2D1B6822652609E /* WireHack.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WireHack.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		C1E44F29148EA392A80D1437 /* YTDLPService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YTDLPService.swift; sourceTree = "<group>"; };
+		E068E72C57DA0C42A538E47A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXGroup section */
-		7646B5FC6A7C67C3196B0104 /* URL2WAV */ = {
+		2FA141702155934F63830EB1 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				46D29C4C155C08215F5854D0 /* Assets.xcassets */,
-				B59647ABBBA7218A885DC5D9 /* ContentView.swift */,
-				4474E80F6A638FB5EDBBDAC3 /* Info.plist */,
-				59E6F0A03924CB42AE27F751 /* URL2WAV.entitlements */,
-				1AC1D591151CBBAB5EC683A9 /* URL2WAVApp.swift */,
-				42C77460B7FC33DCB658F18A /* YTDLPService.swift */,
+				B3E2D51BD2D1B6822652609E /* WireHack.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		3458025E5B7D8C2EF4D5A39A /* URL2WAV */ = {
+			isa = PBXGroup;
+			children = (
 			);
 			path = URL2WAV;
 			sourceTree = "<group>";
 		};
-		89600D51266DADB1ADA93EFB = {
+		A9B14A54463BE5D28A295764 /* WireHack */ = {
 			isa = PBXGroup;
 			children = (
-				7646B5FC6A7C67C3196B0104 /* URL2WAV */,
-				D3E7BFF6B852EBA0D9DFCCC6 /* Products */,
+				A168F9066BD19E9EF0D3C100 /* Assets.xcassets */,
+				9C12A955BBE1205422A6514B /* ContentView.swift */,
+				E068E72C57DA0C42A538E47A /* Info.plist */,
+				27B4397D34B8B9E57349BA34 /* WireHack.entitlements */,
+				5A4D0841C116B8C5F6E75A5D /* WireHackApp.swift */,
+				C1E44F29148EA392A80D1437 /* YTDLPService.swift */,
+				AAE5239E608D452A7CB635B4 /* Services */,
+				3458025E5B7D8C2EF4D5A39A /* URL2WAV */,
 			);
+			path = WireHack;
 			sourceTree = "<group>";
 		};
-		D3E7BFF6B852EBA0D9DFCCC6 /* Products */ = {
+		AAE5239E608D452A7CB635B4 /* Services */ = {
 			isa = PBXGroup;
 			children = (
-				0906BBEC41453489162E7BEA /* URL2WAV.app */,
+				A25E6F1EC060DD90B4B9F02F /* UpdateChecker.swift */,
 			);
-			name = Products;
+			path = Services;
+			sourceTree = "<group>";
+		};
+		D94FFAAB16F5FFF7C894A3E4 = {
+			isa = PBXGroup;
+			children = (
+				A9B14A54463BE5D28A295764 /* WireHack */,
+				2FA141702155934F63830EB1 /* Products */,
+			);
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		0FA5A354B6118ED123EC9E6C /* URL2WAV */ = {
+		4EB045241242D44589A2A15C /* WireHack */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 71A5CFA9A0FC68D6CE80EA6B /* Build configuration list for PBXNativeTarget "URL2WAV" */;
+			buildConfigurationList = AEE433A6D9995D655CE2ACFF /* Build configuration list for PBXNativeTarget "WireHack" */;
 			buildPhases = (
-				FC3AF823F0547816EDC26F0B /* Sources */,
-				3C2AFEF6C2806935B0B67829 /* Resources */,
+				9AFD773AB3FD67F32A26DF98 /* Sources */,
+				BAC4CB5F5FCC5D30DB8C7010 /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
-			name = URL2WAV;
+			name = WireHack;
 			packageProductDependencies = (
 			);
-			productName = URL2WAV;
-			productReference = 0906BBEC41453489162E7BEA /* URL2WAV.app */;
+			productName = WireHack;
+			productReference = B3E2D51BD2D1B6822652609E /* WireHack.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		E97AF54AFD11119017867618 /* Project object */ = {
+		EB173EF6C7A8428E1C78D364 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = YES;
 				LastUpgradeCheck = 1430;
 				TargetAttributes = {
-					0FA5A354B6118ED123EC9E6C = {
+					4EB045241242D44589A2A15C = {
 						ProvisioningStyle = Automatic;
 					};
 				};
 			};
-			buildConfigurationList = 64703218114F18F1B786BB26 /* Build configuration list for PBXProject "URL2WAV" */;
+			buildConfigurationList = E2C20808CA126B7625523B23 /* Build configuration list for PBXProject "WireHack" */;
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				Base,
 				en,
 			);
-			mainGroup = 89600D51266DADB1ADA93EFB;
+			mainGroup = D94FFAAB16F5FFF7C894A3E4;
 			minimizedProjectReferenceProxies = 1;
 			preferredProjectObjectVersion = 77;
-			productRefGroup = D3E7BFF6B852EBA0D9DFCCC6 /* Products */;
+			productRefGroup = 2FA141702155934F63830EB1 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				0FA5A354B6118ED123EC9E6C /* URL2WAV */,
+				4EB045241242D44589A2A15C /* WireHack */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		3C2AFEF6C2806935B0B67829 /* Resources */ = {
+		BAC4CB5F5FCC5D30DB8C7010 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				12074D6D3FC79C0620E38A19 /* Assets.xcassets in Resources */,
+				21C8A117082EA99C93EF0B95 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		FC3AF823F0547816EDC26F0B /* Sources */ = {
+		9AFD773AB3FD67F32A26DF98 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A1312688ECE43999AC15B681 /* ContentView.swift in Sources */,
-				0FFA0EF23E55CD29D116F20C /* URL2WAVApp.swift in Sources */,
-				0E2F0929BC191AF3CC2BAF29 /* YTDLPService.swift in Sources */,
+				72328692954E27E7B967374E /* ContentView.swift in Sources */,
+				3AFAB57B3A5E8783A7F1FA00 /* UpdateChecker.swift in Sources */,
+				4979D27221AC631DD9EA6E5E /* WireHackApp.swift in Sources */,
+				DD947EF55903C0B93EED6388 /* YTDLPService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin XCBuildConfiguration section */
-		0059573D846F4523EE25AB9F /* Release */ = {
+		18433A47EAB48CA496BFDB17 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -188,47 +208,7 @@
 			};
 			name = Release;
 		};
-		510C9EEAF91873B0B77AFF81 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "-";
-				CODE_SIGN_STYLE = Automatic;
-				COMBINE_HIDPI_IMAGES = YES;
-				ENABLE_HARDENED_RUNTIME = YES;
-				INFOPLIST_FILE = URL2WAV/Info.plist;
-				INFOPLIST_KEY_CFBundleDisplayName = URL2WAV;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/../Frameworks",
-				);
-				MACOSX_DEPLOYMENT_TARGET = 14.0;
-				PRODUCT_BUNDLE_IDENTIFIER = io.github.sevmorris.URL2WAV;
-				SDKROOT = macosx;
-			};
-			name = Debug;
-		};
-		BFA730B62F46A4AC392BCE95 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "-";
-				CODE_SIGN_STYLE = Automatic;
-				COMBINE_HIDPI_IMAGES = YES;
-				ENABLE_HARDENED_RUNTIME = YES;
-				INFOPLIST_FILE = URL2WAV/Info.plist;
-				INFOPLIST_KEY_CFBundleDisplayName = URL2WAV;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/../Frameworks",
-				);
-				MACOSX_DEPLOYMENT_TARGET = 14.0;
-				PRODUCT_BUNDLE_IDENTIFIER = io.github.sevmorris.URL2WAV;
-				SDKROOT = macosx;
-			};
-			name = Release;
-		};
-		E6777C96BEDB24EA31DF42D3 /* Debug */ = {
+		2CBB79778286F5ADA3E520A5 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -291,28 +271,68 @@
 			};
 			name = Debug;
 		};
+		9B719F00EA1C2202995119DE /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "-";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				ENABLE_HARDENED_RUNTIME = YES;
+				INFOPLIST_FILE = WireHack/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = WireHack;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 14.0;
+				PRODUCT_BUNDLE_IDENTIFIER = io.github.sevmorris.WireHack;
+				SDKROOT = macosx;
+			};
+			name = Debug;
+		};
+		B88D2370E6EAFCA5DE8EF92B /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "-";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				ENABLE_HARDENED_RUNTIME = YES;
+				INFOPLIST_FILE = WireHack/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = WireHack;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = 14.0;
+				PRODUCT_BUNDLE_IDENTIFIER = io.github.sevmorris.WireHack;
+				SDKROOT = macosx;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		64703218114F18F1B786BB26 /* Build configuration list for PBXProject "URL2WAV" */ = {
+		AEE433A6D9995D655CE2ACFF /* Build configuration list for PBXNativeTarget "WireHack" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				E6777C96BEDB24EA31DF42D3 /* Debug */,
-				0059573D846F4523EE25AB9F /* Release */,
+				9B719F00EA1C2202995119DE /* Debug */,
+				B88D2370E6EAFCA5DE8EF92B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Debug;
 		};
-		71A5CFA9A0FC68D6CE80EA6B /* Build configuration list for PBXNativeTarget "URL2WAV" */ = {
+		E2C20808CA126B7625523B23 /* Build configuration list for PBXProject "WireHack" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				510C9EEAF91873B0B77AFF81 /* Debug */,
-				BFA730B62F46A4AC392BCE95 /* Release */,
+				2CBB79778286F5ADA3E520A5 /* Debug */,
+				18433A47EAB48CA496BFDB17 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Debug;
 		};
 /* End XCConfigurationList section */
 	};
-	rootObject = E97AF54AFD11119017867618 /* Project object */;
+	rootObject = EB173EF6C7A8428E1C78D364 /* Project object */;
 }
