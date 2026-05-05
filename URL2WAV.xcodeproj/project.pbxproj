@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		0E2F0929BC191AF3CC2BAF29 /* YTDLPService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 42C77460B7FC33DCB658F18A /* YTDLPService.swift */; };
 		0FFA0EF23E55CD29D116F20C /* URL2WAVApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1AC1D591151CBBAB5EC683A9 /* URL2WAVApp.swift */; };
+		12074D6D3FC79C0620E38A19 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 46D29C4C155C08215F5854D0 /* Assets.xcassets */; };
 		A1312688ECE43999AC15B681 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B59647ABBBA7218A885DC5D9 /* ContentView.swift */; };
 /* End PBXBuildFile section */
 
@@ -17,6 +18,8 @@
 		1AC1D591151CBBAB5EC683A9 /* URL2WAVApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URL2WAVApp.swift; sourceTree = "<group>"; };
 		42C77460B7FC33DCB658F18A /* YTDLPService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = YTDLPService.swift; sourceTree = "<group>"; };
 		4474E80F6A638FB5EDBBDAC3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		46D29C4C155C08215F5854D0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		59E6F0A03924CB42AE27F751 /* URL2WAV.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = URL2WAV.entitlements; sourceTree = "<group>"; };
 		B59647ABBBA7218A885DC5D9 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -24,8 +27,10 @@
 		7646B5FC6A7C67C3196B0104 /* URL2WAV */ = {
 			isa = PBXGroup;
 			children = (
+				46D29C4C155C08215F5854D0 /* Assets.xcassets */,
 				B59647ABBBA7218A885DC5D9 /* ContentView.swift */,
 				4474E80F6A638FB5EDBBDAC3 /* Info.plist */,
+				59E6F0A03924CB42AE27F751 /* URL2WAV.entitlements */,
 				1AC1D591151CBBAB5EC683A9 /* URL2WAVApp.swift */,
 				42C77460B7FC33DCB658F18A /* YTDLPService.swift */,
 			);
@@ -56,6 +61,7 @@
 			buildConfigurationList = 71A5CFA9A0FC68D6CE80EA6B /* Build configuration list for PBXNativeTarget "URL2WAV" */;
 			buildPhases = (
 				FC3AF823F0547816EDC26F0B /* Sources */,
+				3C2AFEF6C2806935B0B67829 /* Resources */,
 			);
 			buildRules = (
 			);
@@ -100,6 +106,17 @@
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		3C2AFEF6C2806935B0B67829 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				12074D6D3FC79C0620E38A19 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		FC3AF823F0547816EDC26F0B /* Sources */ = {
