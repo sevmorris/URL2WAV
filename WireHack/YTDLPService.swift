@@ -1,8 +1,8 @@
 import Foundation
 
 enum DownloadFormat: String, CaseIterable, Identifiable {
-    case nativeAudio = "Native Audio Only"
-    case nativeVideo = "Native Video"
+    case nativeAudio = "Audio"
+    case nativeVideo = "Video"
     
     var id: String { self.rawValue }
     
