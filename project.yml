@@ -1,0 +1,37 @@
+name: URL2WAV
+
+options:
+  bundleIdPrefix: io.github.sevmorris
+  deploymentTarget:
+    macOS: "14.0"
+  createIntermediateGroups: true
+
+settings:
+  base:
+    SWIFT_VERSION: "5.0"
+    MACOSX_DEPLOYMENT_TARGET: "14.0"
+
+targets:
+  URL2WAV:
+    type: application
+    platform: macOS
+    deploymentTarget: "14.0"
+    sources:
+      - path: URL2WAV
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: io.github.sevmorris.URL2WAV
+        INFOPLIST_KEY_CFBundleDisplayName: URL2WAV
+        CODE_SIGN_STYLE: Automatic
+        ENABLE_HARDENED_RUNTIME: YES
+        CODE_SIGN_IDENTITY: "-"
+    info:
+      path: URL2WAV/Info.plist
+      properties:
+        CFBundleName: URL2WAV
+        CFBundleDisplayName: URL2WAV
+        CFBundleShortVersionString: "1.0.0"
+        CFBundleVersion: "1"
+        LSApplicationCategoryType: public.app-category.utilities
+        NSAppTransportSecurity:
+          NSAllowsArbitraryLoads: true
