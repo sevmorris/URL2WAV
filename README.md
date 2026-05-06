@@ -33,21 +33,6 @@
 
 ---
 
-## For Developers
-The project uses [XcodeGen](https://github.com/yonaskolb/XcodeGen) to manage the project file.
-
-1.  Clone the repo.
-2.  Run `xcodegen generate`.
-3.  Open `WireHack.xcodeproj`.
-
-### Releasing
-Use the bundled release script to build, sign, and notarize:
-```bash
-./release.sh 1.0.x
-```
-
----
-
 ### License
 Copyright © 2026 Seven Morris.
 Distributed under the [GNU General Public License v3.0](LICENSE).
