@@ -32,7 +32,5 @@ targets:
         CFBundleName: WireHack
         CFBundleDisplayName: WireHack
         CFBundleShortVersionString: "1.5.2"
-        CFBundleVersion: "152"
+        CFBundleVersion: "10502"
         LSApplicationCategoryType: public.app-category.utilities
-        NSAppTransportSecurity:
-          NSAllowsArbitraryLoads: true

@@ -21,7 +21,7 @@
 ---
 
 ## Requirements
-*   **yt-dlp**: Must be installed at `/opt/homebrew/bin/yt-dlp`.
+*   **yt-dlp**: Must be on disk at one of: `/opt/homebrew/bin`, `/usr/local/bin`, `/opt/local/bin`, `~/.local/bin`, or `/usr/bin`. Homebrew (`brew install yt-dlp`) covers Apple Silicon and Intel automatically.
 *   **ffmpeg**: Required by `yt-dlp` for audio extraction and conversion.
 
 ---

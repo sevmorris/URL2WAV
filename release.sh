@@ -66,15 +66,21 @@ if [[ "$CURRENT" == "$VERSION" ]]; then
     ok "Already at $VERSION"
 else
     sed -i '' "s/CFBundleShortVersionString: \"${CURRENT}\"/CFBundleShortVersionString: \"${VERSION}\"/g" "$YAML"
-    # Also update CFBundleVersion
-    sed -i '' "s/CFBundleVersion: \"[0-9]*\"/CFBundleVersion: \"${VERSION//./}\"/g" "$YAML"
-    
+    # Build number: zero-padded MMMmmpp so it stays monotonic across digit
+    # boundaries (e.g. 1.5.10 → 10510 < 1.6.0 → 10600).
+    IFS=. read -r MAJ MIN PATCH <<< "$VERSION"
+    BUNDLE_VERSION=$(printf "%d%02d%02d" "${MAJ:-0}" "${MIN:-0}" "${PATCH:-0}")
+    sed -i '' "s/CFBundleVersion: \"[0-9]*\"/CFBundleVersion: \"${BUNDLE_VERSION}\"/g" "$YAML"
+
     xcodegen generate
-    ok "Bumped $CURRENT → $VERSION and regenerated project"
+    ok "Bumped $CURRENT → $VERSION (build $BUNDLE_VERSION) and regenerated project"
 fi
 
+# Always update README's download link, even if version was pre-bumped.
+sed -i '' "s|WireHack-v[0-9][0-9.]*\.dmg|WireHack-${TAG}.dmg|g" README.md
+
 if [[ -n "$(git status --porcelain)" ]]; then
-    git add "$YAML" "$PROJECT/project.pbxproj"
+    git add "$YAML" "$PROJECT/project.pbxproj" "WireHack/Info.plist" README.md
     git commit -m "Bump version to $VERSION"
     ok "Committed version bump"
 else
@@ -154,7 +160,12 @@ ok "Pushed $TAG"
 
 # ── GitHub release ────────────────────────────────────────────────────────────
 step "Creating GitHub release"
-CHANGES=$(git log -n 5 --pretty=format:"- %s" | grep -v "Bump version")
+PREV_TAG=$(git tag --sort=-creatordate | grep -v "^${TAG}$" | head -1)
+if [[ -n "$PREV_TAG" ]]; then
+    CHANGES=$(git log "${PREV_TAG}..HEAD" --pretty=format:"- %s" | grep -v "^- Bump version" || true)
+else
+    CHANGES=$(git log --pretty=format:"- %s" | grep -v "^- Bump version" || true)
+fi
 RELEASE_NOTES="### Changes
 ${CHANGES}"
 

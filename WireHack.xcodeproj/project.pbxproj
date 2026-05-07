@@ -11,11 +11,13 @@
 		3AFAB57B3A5E8783A7F1FA00 /* UpdateChecker.swift in Sources */ = {isa = PBXBuildFile; fileRef = A25E6F1EC060DD90B4B9F02F /* UpdateChecker.swift */; };
 		4979D27221AC631DD9EA6E5E /* WireHackApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5A4D0841C116B8C5F6E75A5D /* WireHackApp.swift */; };
 		72328692954E27E7B967374E /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9C12A955BBE1205422A6514B /* ContentView.swift */; };
+		9036FD33842B6CB550CE76CE /* ContentViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 415ACA1B400999C01E28C512 /* ContentViewModel.swift */; };
 		DD947EF55903C0B93EED6388 /* YTDLPService.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1E44F29148EA392A80D1437 /* YTDLPService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		27B4397D34B8B9E57349BA34 /* WireHack.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = WireHack.entitlements; sourceTree = "<group>"; };
+		415ACA1B400999C01E28C512 /* ContentViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentViewModel.swift; sourceTree = "<group>"; };
 		5A4D0841C116B8C5F6E75A5D /* WireHackApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WireHackApp.swift; sourceTree = "<group>"; };
 		9C12A955BBE1205422A6514B /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		A168F9066BD19E9EF0D3C100 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -46,6 +48,7 @@
 			children = (
 				A168F9066BD19E9EF0D3C100 /* Assets.xcassets */,
 				9C12A955BBE1205422A6514B /* ContentView.swift */,
+				415ACA1B400999C01E28C512 /* ContentViewModel.swift */,
 				E068E72C57DA0C42A538E47A /* Info.plist */,
 				27B4397D34B8B9E57349BA34 /* WireHack.entitlements */,
 				5A4D0841C116B8C5F6E75A5D /* WireHackApp.swift */,
@@ -143,6 +146,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				72328692954E27E7B967374E /* ContentView.swift in Sources */,
+				9036FD33842B6CB550CE76CE /* ContentViewModel.swift in Sources */,
 				3AFAB57B3A5E8783A7F1FA00 /* UpdateChecker.swift in Sources */,
 				4979D27221AC631DD9EA6E5E /* WireHackApp.swift in Sources */,
 				DD947EF55903C0B93EED6388 /* YTDLPService.swift in Sources */,

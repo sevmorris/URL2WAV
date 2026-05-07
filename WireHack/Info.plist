@@ -19,13 +19,8 @@
 	<key>CFBundleShortVersionString</key>
 	<string>1.5.2</string>
 	<key>CFBundleVersion</key>
-	<string>152</string>
+	<string>10502</string>
 	<key>LSApplicationCategoryType</key>
 	<string>public.app-category.utilities</string>
-	<key>NSAppTransportSecurity</key>
-	<dict>
-		<key>NSAllowsArbitraryLoads</key>
-		<true/>
-	</dict>
 </dict>
 </plist>
