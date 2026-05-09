@@ -14,16 +14,17 @@ struct ContentView: View {
                 VStack(alignment: .leading, spacing: 8) {
                     Text("Paste or drop URL")
                         .font(.caption)
-                        .foregroundStyle(.secondary)
+                        .foregroundStyle(.white.opacity(0.7))
 
                     TextField("https://www.youtube.com/watch?v=...", text: $viewModel.url)
                         .textFieldStyle(.plain)
                         .padding(12)
-                        .background(Color(NSColor.controlBackgroundColor))
+                        .background(.white.opacity(0.95))
+                        .foregroundStyle(.black)
                         .clipShape(RoundedRectangle(cornerRadius: 8))
                         .overlay(
                             RoundedRectangle(cornerRadius: 8)
-                                .stroke(Color.secondary.opacity(0.2), lineWidth: 1)
+                                .stroke(.white.opacity(0.25), lineWidth: 1)
                         )
                         .disabled(viewModel.isDownloading)
                 }
@@ -32,26 +33,24 @@ struct ContentView: View {
                 VStack(alignment: .leading, spacing: 8) {
                     Text("Format")
                         .font(.caption)
-                        .foregroundStyle(.secondary)
+                        .foregroundStyle(.white.opacity(0.7))
 
-                    Picker("", selection: $viewModel.selectedFormat) {
-                        ForEach(DownloadFormat.allCases) { format in
-                            Text(format.rawValue).tag(format)
-                        }
-                    }
-                    .pickerStyle(.segmented)
-                    .disabled(viewModel.isDownloading)
+                    FormatSegmentedControl(
+                        selection: $viewModel.selectedFormat,
+                        isDisabled: viewModel.isDownloading
+                    )
                 }
 
                 // Output Selector
                 VStack(alignment: .leading, spacing: 8) {
                     Text("Output Destination")
                         .font(.caption)
-                        .foregroundStyle(.secondary)
+                        .foregroundStyle(.white.opacity(0.7))
 
                     HStack {
                         Text(viewModel.outputDirectory?.lastPathComponent ?? "Choose folder...")
                             .font(.subheadline)
+                            .foregroundStyle(.white)
                             .lineLimit(1)
                             .truncationMode(.middle)
                             .frame(maxWidth: .infinity, alignment: .leading)
@@ -62,7 +61,7 @@ struct ContentView: View {
                         .disabled(viewModel.isDownloading)
                     }
                     .padding(8)
-                    .background(Color(NSColor.controlBackgroundColor).opacity(0.5))
+                    .background(.white.opacity(0.1))
                     .clipShape(RoundedRectangle(cornerRadius: 6))
                 }
             }
@@ -81,27 +80,33 @@ struct ContentView: View {
                 .padding(.vertical, 10)
             }
             .buttonStyle(.borderedProminent)
-            .tint(viewModel.isDownloading ? .red : .orange)
+            .tint(viewModel.isDownloading ? .red : .brandOrange)
             .disabled(!viewModel.canTriggerPrimary)
             .keyboardShortcut(.return, modifiers: [])
 
             if let error = viewModel.errorMessage {
                 Text(error)
                     .font(.caption)
-                    .foregroundStyle(.red)
+                    .foregroundStyle(Color(red: 1.0, green: 0.55, blue: 0.55))
                     .multilineTextAlignment(.center)
                     .lineLimit(3)
             } else {
                 Text(viewModel.status)
                     .font(.caption)
-                    .foregroundStyle(.secondary)
+                    .foregroundStyle(.white.opacity(0.7))
                     .lineLimit(2)
                     .truncationMode(.middle)
             }
         }
         .padding(30)
         .frame(width: 400)
-        .background(VisualEffectView(material: .underWindowBackground, blendingMode: .behindWindow))
+        .background(
+            LinearGradient(
+                colors: [.brandBlueLight, .brandBlueDark],
+                startPoint: .top,
+                endPoint: .bottom
+            )
+        )
         .dropDestination(for: URL.self) { items, _ in
             guard let dropped = items.first else { return false }
             viewModel.acceptIncomingURL(dropped.absoluteString, replaceExisting: true)
@@ -120,23 +125,70 @@ struct ContentView: View {
     private var header: some View {
         HStack(spacing: 12) {
             ZStack {
-                Circle()
-                    .fill(Color.orange.gradient)
+                RoundedRectangle(cornerRadius: 10, style: .continuous)
+                    .fill(Color.brandOrange.gradient)
                     .frame(width: 40, height: 40)
-                Image(systemName: "arrow.down.to.line")
-                    .font(.title3.bold())
+                Image(systemName: "arrow.down")
+                    .font(.title2.bold())
                     .foregroundStyle(.white)
             }
 
             VStack(alignment: .leading, spacing: 0) {
                 Text("WireHack")
                     .font(.headline)
+                    .foregroundStyle(.white)
                 Text("yt-dlp wrapper")
                     .font(.caption)
-                    .foregroundStyle(.secondary)
+                    .foregroundStyle(.white.opacity(0.7))
             }
             Spacer()
         }
+    }
+}
+
+extension Color {
+    /// Lighter blue from the app icon's top edge.
+    static let brandBlueLight = Color(red: 36 / 255, green: 96 / 255, blue: 146 / 255)
+    /// Darker blue from the app icon's bottom edge.
+    static let brandBlueDark = Color(red: 15 / 255, green: 51 / 255, blue: 88 / 255)
+    /// The orange of the icon's arrow.
+    static let brandOrange = Color(red: 216 / 255, green: 116 / 255, blue: 50 / 255)
+}
+
+private struct FormatSegmentedControl: View {
+    @Binding var selection: DownloadFormat
+    let isDisabled: Bool
+
+    var body: some View {
+        HStack(spacing: 0) {
+            ForEach(DownloadFormat.allCases) { format in
+                segment(for: format)
+            }
+        }
+        .background(.white.opacity(0.1))
+        .clipShape(RoundedRectangle(cornerRadius: 6, style: .continuous))
+        .overlay(
+            RoundedRectangle(cornerRadius: 6, style: .continuous)
+                .stroke(.white.opacity(0.15), lineWidth: 1)
+        )
+        .opacity(isDisabled ? 0.5 : 1)
+        .allowsHitTesting(!isDisabled)
+    }
+
+    private func segment(for format: DownloadFormat) -> some View {
+        let isSelected = selection == format
+        return Button {
+            selection = format
+        } label: {
+            Text(format.rawValue)
+                .font(.subheadline.weight(isSelected ? .semibold : .regular))
+                .foregroundStyle(.white)
+                .frame(maxWidth: .infinity)
+                .padding(.vertical, 6)
+                .contentShape(Rectangle())
+        }
+        .buttonStyle(.plain)
+        .background(isSelected ? Color.brandOrange : .clear)
     }
 }
 
