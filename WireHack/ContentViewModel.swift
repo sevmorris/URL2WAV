@@ -15,11 +15,31 @@ final class ContentViewModel {
         didSet { UserDefaults.standard.set(outputDirectoryPath, forKey: Self.outputKey) }
     }
 
+    var numberingEnabled: Bool {
+        didSet { UserDefaults.standard.set(numberingEnabled, forKey: Self.numberingKey) }
+    }
+
+    var currentNumber: Int {
+        didSet { UserDefaults.standard.set(currentNumber, forKey: Self.currentNumberKey) }
+    }
+
     private static let outputKey = "outputDirectoryPath"
+    private static let numberingKey = "numberingEnabled"
+    private static let currentNumberKey = "currentNumber"
     private var downloadTask: Task<Void, Never>?
 
     init() {
         outputDirectoryPath = UserDefaults.standard.string(forKey: Self.outputKey) ?? ""
+        numberingEnabled = UserDefaults.standard.bool(forKey: Self.numberingKey)
+        let savedNumber = UserDefaults.standard.integer(forKey: Self.currentNumberKey)
+        currentNumber = savedNumber > 0 ? savedNumber : 1
+    }
+
+    var outputTemplate: String {
+        if numberingEnabled {
+            return String(format: "%02d - ", currentNumber) + "%(title)s.%(ext)s"
+        }
+        return "%(title)s.%(ext)s"
     }
 
     var outputDirectory: URL? {
@@ -80,6 +100,8 @@ final class ContentViewModel {
         let format = selectedFormat
         let destPath = outputDirectory?.path
         let destLabel = outputDirectory?.lastPathComponent ?? "destination"
+        let template = outputTemplate
+        let wasNumbering = numberingEnabled
 
         downloadTask = Task {
             defer {
@@ -90,12 +112,16 @@ final class ContentViewModel {
                 try await YTDLPService.shared.downloadMedia(
                     url: trimmed,
                     format: format,
-                    downloadFolder: destPath
+                    downloadFolder: destPath,
+                    outputTemplate: template
                 ) { [weak self] line in
                     Task { @MainActor in self?.status = line }
                 }
                 status = "Finished — saved to \(destLabel)"
                 url = ""
+                if wasNumbering {
+                    currentNumber = min(currentNumber + 1, 9999)
+                }
             } catch is CancellationError {
                 status = "Cancelled"
             } catch YTDLPError.cancelled {

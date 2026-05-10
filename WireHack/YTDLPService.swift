@@ -58,6 +58,7 @@ final class YTDLPService {
         url: String,
         format: DownloadFormat,
         downloadFolder: String? = nil,
+        outputTemplate: String = "%(title)s.%(ext)s",
         onProgress: @escaping @Sendable (String) -> Void
     ) async throws {
         let binary = try resolveBinary()
@@ -71,7 +72,7 @@ final class YTDLPService {
         process.arguments = [
             "-f", format.ytDlpFormatArg,
             "-P", destination,
-            "-o", "%(title)s.%(ext)s",
+            "-o", outputTemplate,
             "--no-playlist",
             "--newline",
             url

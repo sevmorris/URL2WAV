@@ -41,6 +41,34 @@ struct ContentView: View {
                     )
                 }
 
+                // Numbering
+                VStack(alignment: .leading, spacing: 8) {
+                    Text("Numbering")
+                        .font(.caption)
+                        .foregroundStyle(.white.opacity(0.7))
+
+                    HStack {
+                        Toggle("Auto-number", isOn: $viewModel.numberingEnabled)
+                            .toggleStyle(.checkbox)
+                            .foregroundStyle(.white)
+                            .disabled(viewModel.isDownloading)
+
+                        Spacer()
+
+                        Stepper(value: $viewModel.currentNumber, in: 1...9999) {
+                            Text(String(format: "%02d", viewModel.currentNumber))
+                                .font(.subheadline.monospacedDigit())
+                                .foregroundStyle(.white)
+                                .frame(minWidth: 28, alignment: .trailing)
+                        }
+                        .disabled(viewModel.isDownloading || !viewModel.numberingEnabled)
+                        .opacity(viewModel.numberingEnabled ? 1 : 0.5)
+                    }
+                    .padding(8)
+                    .background(.white.opacity(0.1))
+                    .clipShape(RoundedRectangle(cornerRadius: 6))
+                }
+
                 // Output Selector
                 VStack(alignment: .leading, spacing: 8) {
                     Text("Output Destination")
